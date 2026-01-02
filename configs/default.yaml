@@ -1,0 +1,95 @@
+# GraphNarrator Enhancement - Default Configuration
+# This file contains default hyperparameters for all improvement modules
+
+# General settings
+general:
+  seed: 42
+  device: "cuda"
+  dataset: "cora"
+  log_level: "INFO"
+
+# Joint VAE Module
+joint_vae:
+  t5_name: "t5-small"
+  z_dim: 256
+  hidden_dim: 768
+  n_class: 7
+  beta: 1.0
+  learning_rate: 3e-4
+  batch_size: 8
+  epochs: 10
+  early_stopping_patience: 3
+
+# Adversarial Probing Module
+adversarial:
+  hidden_dim: 256
+  t5_name: "t5-small"
+  lambda_length: 0.01
+  learning_rate: 1e-4
+  generator_steps: 1
+  critic_steps: 5
+  epochs: 10
+
+# DSL Code Generation Module
+dsl:
+  model_name: "Salesforce/codet5-small"
+  max_input_length: 512
+  max_output_length: 256
+  learning_rate: 5e-5
+  batch_size: 4
+  epochs: 10
+  executor_timeout: 5.0
+
+# Causal Intervention Module
+causal:
+  t5_name: "t5-small"
+  hidden_dim: 512
+  n_heads: 8
+  max_interventions: 5
+  lambda_length: 0.1
+  learning_rate: 3e-4
+  epochs: 10
+
+# Embodied Agent Module
+embodied:
+  hidden_dim: 256
+  lstm_layers: 2
+  max_steps: 10
+  learning_rate: 3e-4
+  gamma: 0.99
+  gae_lambda: 0.95
+  clip_epsilon: 0.2
+  entropy_coef: 0.01
+  value_coef: 0.5
+  max_grad_norm: 0.5
+  total_steps: 100000
+  rollout_steps: 256
+
+# Evolution Module
+evolution:
+  population_size: 256
+  dna_length: 64
+  mutation_rate: 0.1
+  crossover_rate: 0.8
+  elitism_ratio: 0.1
+  tournament_k: 3
+  lambda_length: 0.01
+  diversity_threshold: 0.1
+  generations: 30
+
+# Visualization settings
+visualization:
+  dpi: 300
+  figure_size: [12, 6]
+  style: "seaborn-whitegrid"
+  color_palette: "husl"
+
+# Evaluation settings
+evaluation:
+  n_samples: 50
+  masking_range: 80
+  metrics:
+    - saliency
+    - faithfulness
+    - brevity
+    - inference_time
