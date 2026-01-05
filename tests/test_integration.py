@@ -1,5 +1,5 @@
 """
-Integration Tests for GraphNarrator Enhancement Modules
+Integration Tests for Enhancement Modules
 """
 
 import pytest
