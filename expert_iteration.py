@@ -1,5 +1,5 @@
 """
-GraphNarrator-style expert iteration loop.
+ expert iteration loop.
 
 This module performs pseudo-label refinement by iteratively:
   1) generating explanations
